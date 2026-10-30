@@ -1,0 +1,14 @@
+name: ascii_curl
+
+services:
+  ascii_curl:
+    image: ascii-live-custom:local
+    build: .
+    read_only: true
+    restart: unless-stopped
+    environment:
+      CUSTOM_FRAMES_DIR: /ansi_frames
+    ports:
+      - "127.0.0.1:8124:8080"
+    volumes:
+      - ./ansi_frames:/ansi_frames:ro
